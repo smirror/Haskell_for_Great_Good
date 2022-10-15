@@ -81,3 +81,30 @@ take 10 (repeat 5)
 replicate 3 10
 -- but floating point numbers are not precise
 [0.1,0.3..1]
+
+-- 1.5
+-- List comprehension
+[x*2 | x <- [1..10]]
+[x*2 | x <- [1..10], x*2 >= 12]
+[x | x <-[50..100], x `mod` 7 == 3]
+
+boombangs xs = [ if x < 10 then "BOOM!" else "BANG" | x <- xs, odd x]
+[ x | x <- [10..20], x /= 13, x /= 15, x /= 19]
+[ x+y | x <- [1,2,3], y <- [10,100,1000]]
+
+-- product of two lists
+[ x*y | x <- [2,5,10], y <- [8,10,11]]
+[ x*y | x <- [2,5,10], y <- [8,10,11], x*y > 50]
+
+-- length of a string
+let nouns = ["hobo", "frog", "pope"]
+let adjectives = ["lazy","grouchy","scheming"]
+[adjective ++ " " ++ noun | adjective <- adjectives, noun <- nouns]
+
+length' xs = sum [1 | _ <- xs]
+
+removeNonUppercase st = [ c | c <- st, c `elem` ['A'..'Z']]
+removeNonUppercase "HAhaha!"
+
+let xxs = [[1,3,5,2,3,1,2,4,5], [1,2,3,4,5,6,7,8,9],[1,2,4,2,1,6,3,1,3,2,3,6]]
+[[ x | x <- xs, even x] | xs <- xxs]
