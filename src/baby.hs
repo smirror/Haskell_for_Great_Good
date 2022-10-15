@@ -6,6 +6,7 @@ doubleSmallNumber x = if x > 100
 doubleSmallNumber' x = (if x > 100 then x else x*2) + 1
 conanO'Brien = "It's a-me, Conan O'Brien!"
 
+-- 1.3
 -- Lists
 let lostNumbers = [4,8,15,16,23,42]
 
@@ -60,3 +61,23 @@ sum [5,2,1,6,3,2,5,7] -- 31
 product [6,2,1,2] -- 24
 4 `elem` [3,4,5,6] -- True
 10 `elem` [3,4,5,6] -- False
+
+-- 1.4
+-- Ranges
+[1..20]
+['a'..'z']
+['K'..'Z']
+
+-- step
+[2,4..20]
+[3,6..20]
+[13,26..24*13]
+take 24 [13,26..]
+take 10 (cycle [1,2,3])
+take 12 (cycle "LOL ")
+-- repeat is like cycle but with only one element
+take 10 (repeat 5)
+-- replicate simply makes list of one element
+replicate 3 10
+-- but floating point numbers are not precise
+[0.1,0.3..1]
