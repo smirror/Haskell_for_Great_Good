@@ -108,3 +108,27 @@ removeNonUppercase "HAhaha!"
 
 let xxs = [[1,3,5,2,3,1,2,4,5], [1,2,3,4,5,6,7,8,9],[1,2,4,2,1,6,3,1,3,2,3,6]]
 [[ x | x <- xs, even x] | xs <- xxs]
+
+-- 1.6 tupple
+(1, 3)
+(3, 'a', "hello")
+(50, 50.4, "hello", 'b')
+
+-- use tupple
+[(1,2), (8,11,5), (4,5)]
+-- Couldn't match expected type
+
+-- use pare
+fst (8, 11)
+fst ("Wow", False)
+
+snd (8, 11)
+snd ("Wow", False)
+
+zip [1,2,3,4,5] [5,5,5,5,5]
+zip [1..5] ["one", "two", "three", "four", "five"]
+zip [1..] ["one", "two", "three", "four", "five"]
+
+let triples = [ (a,b,c) | c <- [1..10], a <- [1..10], b <- [1..10] ]
+let rightTriangles = [ (a,b,c) | c <- [1..10], a <- [1..10], b <- [1..10], a^2 + b^2 == c^2 ]
+let rightTriangles' = [(a,b,c) | c <- [1..10], a <- [1..c], b <- [1..a], a^2 + b^2 == c^2, a+b+c == 24 ]
